@@ -1,0 +1,476 @@
+h5, p{
+    margin: 0;
+}
+.content{
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box; 
+    max-width: 100%;
+    height: calc(100dvh - 80px);
+}
+.banners{
+    display: flex;
+    margin-top: 30px;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 2.1dvw;
+}
+.bannerImgT, .bannerImgB {
+    border-radius: 22px;
+    width: 100%;
+}
+.buttonDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    gap: 20px;
+}
+.lineDecoration{
+    width: 44vw;
+    height: 3px;
+    background-color: white;
+}
+.lineDecoration::after{
+    content: '';
+    width: 44vw;
+    height: 3px;
+    background-color: white;
+    position: absolute;
+    filter: blur(0.3rem);
+}
+.buttonDown{
+    border-radius: 9999px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    border: 3px solid white;
+    background: transparent;
+    padding: 0px;
+    justify-content: center;
+    position: relative;
+    transition: all 0.2s ease-out;
+    order: 1;
+}
+.buttonDown:hover{
+    background-color: #e62a6d;
+    transform: scale(1.3);
+}
+.buttonDown::before, .buttonDown::after{
+    content: '';
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    border-radius: 9999px;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    padding: 4px;
+    border: 3px solid white;
+}
+.buttonDown::after{
+    filter: blur(0.25rem);
+    opacity: 0.9;
+}
+.textToContinue{
+    color: white;
+    text-shadow: 0px 0px 4px rgb(255, 255, 255);
+    font-size: clamp(26px, 29vw, 38px);
+    margin-bottom: 0;
+}
+.rolesSection{
+    height: fit-content;
+    color: white;
+    font-size: 44px;
+    padding: 12px 0;
+    box-sizing: border-box; 
+}
+.topRoles{
+    height: calc((100dvh - 116px)/2);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    padding: 0  22px;
+    box-sizing: border-box;
+    margin-bottom: 12px;
+}
+.role{
+    flex: 1;
+    border-radius: 10px;
+    height: calc((100dvh - 116px)/2);
+    cursor: pointer;
+}
+.designer, .frontDev, .videogamesDev{
+    position: relative;
+    background-image: radial-gradient(circle at right bottom, #432e53, #371d4b, #210a31);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content:center;
+}
+.gamesContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    padding-top: 15px;
+}
+.designer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // background-image: linear-gradient(to right bottom, #5bb1c4, #53b4cb, #49b8d2, #3dbbd9, #2ebee1, #25b6d9, #1aaed0, #0ca6c8, #1191ae, #147d95, #156a7d, #155766);
+    background-color: #26B8DB;
+    opacity: 0;
+    transition: opacity 0.2s ease-out, color 0.2s ease-out;
+    z-index: -1;
+}
+.frontDev {
+    background-image: radial-gradient(circle at left bottom, #432e53, #371d4b, #210a31);
+}
+
+.frontDev::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // background-image: linear-gradient(to right bottom, #c45b82, #cb547f, #d14d7c, #d84578, #de3b74, #d7356e, #d02e67, #c92761, #b42458, #a0214e, #8c1e45, #781b3c);
+    opacity: 0;
+    background-color: #e62a6d;
+    transition: opacity 0.2s ease-out;
+    z-index: -1;
+}
+.videogamesDev{
+    background-image: radial-gradient(circle at top, #432e53, #371d4b, #210a31);
+    margin: 0 22px 0px 22px;
+    align-items: center;
+    justify-content:space-between;
+}
+.videogamesDev::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // background-image: linear-gradient(to right bottom, #5e4bb9, #5845b1, #523fa9, #4b39a1, #453399, #402e90, #3a2987, #35247e, #2f1f72, #291b66, #23165a, #1d124f);
+    background-color: #2D1E68;
+    opacity: 0;
+    transition: opacity 0.2s ease-out;
+    z-index: -1;
+}
+.frontDev:hover::before, .designer:hover::before, .videogamesDev:hover::before  {
+    opacity: 1;
+}
+.frontDev:hover, .designer:hover, .videogamesDev:hover{
+    background-image: none ;
+    .imgRole{
+        display: block;
+    }
+
+    h5, p{
+        text-shadow: none;
+    }
+    .skills{
+        font-weight: 400;
+    }
+    .skills, .desc, .roleTitle{
+        transform: scale(1.12);
+    }
+    
+}
+.frontDev:hover, .designer:hover{
+    color: rgb(7, 7, 7);
+    .skills, .desc, .roleTitle{
+        transform: translateX(20px) scale(1.06);
+    }
+    .skills{
+        padding-right: 66px;
+    }
+}
+
+.roleTitle{
+    font-size: clamp(20px, 4vw, 40px);
+    // text-shadow: 0px 0px 4px rgb(255, 255, 255);
+    padding: 0 25px;
+    transition: transform 0.2s ease-out;
+}
+.desc{
+    font-size: clamp(14px, 1.9vw, 30px);
+    // text-shadow: 0px 0px 4px rgb(255, 255, 255);
+    font-weight:400;
+    padding: 0 25px;
+    transition: transform 0.2s ease-out;
+}
+.skills{
+    padding: 0 25px;
+    font-size: clamp(12px, 1.2vw, 24px);
+    font-weight:100;
+    font-style: italic;
+    // text-shadow: 0px 0px 4px rgb(255, 255, 255);
+    text-align: left;
+    transition: transform 0.2s ease-out;
+}
+
+.imgRole{
+    width: 100%;
+    height: 35px;
+    animation: moveImage 4s linear infinite;
+    display: none;
+}
+.projects{
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    position: absolute;
+}
+.imgProject{
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.imgProject{
+    width: 40%;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    height: calc(100dvh - 80px);
+}
+.containerForProjects{
+    position: relative;
+    height: fit-content;
+}
+#containerCarousel{
+    height: calc(100dvh - 80px);
+    position: absolute;
+    box-sizing: border-box; 
+    width: 100%;
+}
+#projectsList {
+    width: 100%;
+    height: calc(100dvh - 80px);
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    gap: 35px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    align-items: center;
+    position: absolute;
+    box-sizing: border-box; 
+}
+#projectsList.expanded{
+    overflow-x: hidden;
+}
+.fewerProjects{
+    justify-content: center;
+}
+.leftScrollButton, .rightScrollButton{
+    height: 3.5dvw;
+    width: 3.5dvw;
+    border-radius: 9999px;
+    border: 0;
+    object-fit: cover;
+    background-color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 2.6dvw;
+    position: absolute;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    cursor: pointer;
+    z-index: 1000;
+    transform: translateY(-50%);
+    transition: all 200ms ease-out;
+}
+.leftScrollButton:hover, .rightScrollButton:hover{
+    background-color: #f3f3f3;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    transform: scale(1.2) translateY(-42%);
+}
+.leftScrollButton{
+    background-image: url(/arrow-left.svg);
+    top: 50%;
+    left: 16px;
+}
+.rightScrollButton{
+    background-image: url(/arrow-right.svg);
+    top: 50%;
+    right: 16px;
+}
+#projectsList::-webkit-scrollbar {
+    display: none;
+}
+.backToProjects{
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(161, 159, 187);
+    background-color: white;
+    border-radius: 9999px;
+    padding: 6px 16px 4px 8px;
+    position: absolute;
+    background-color: transparent;
+    top: 2.4dvw;
+    left: 5dvw;
+    color: rgba(17, 7, 50, 0.616);
+    font-size: clamp(14px, 1.5dvw, 36px);
+    cursor: pointer;
+    transition: all 130ms ease-out;
+}
+.backToProjects:hover{
+    background-color: rgb(245, 245, 245);
+    font-size: clamp(18px, 1.5dvw, 32px);
+    font-weight: 500;
+    padding: 8px 18px 6px 10px;
+    color: rgba(17, 7, 50, 1);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.projectInCarousel {
+    scroll-snap-align: center; 
+    flex-shrink: 0;
+    width: 286px;
+    padding: 28px 56px;
+    flex-grow: 0;
+    transition: all 600ms ease;
+    order: 0;
+}
+.projectInCarousel:nth-child(1){
+    padding-left: 98px;
+}
+.projectInCarousel:last-child {
+    padding-right: 98px;
+}
+.projectInCarousel.expanded{
+    width: 100dvw;
+    height: 100%;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 0 0 5dvw;
+    display: flex;
+    flex-direction: column;
+    order: -1;
+}
+
+.expandedBanner{
+    width: 100dvw;
+    justify-content: space-between;
+    box-sizing: border-box;
+    display: flex;
+    order: -1;
+}
+
+.mainPicture:hover{
+    transform: scale(1.12) translateY(22px);
+    ~ .infoProject{
+        opacity: 0;
+    }
+}
+.mainPicture{
+    width: 100%;
+    border-radius: 210px;
+    height: 58dvh;
+    object-fit: cover;
+    cursor: pointer;
+    box-shadow: rgb(255, 255, 255) 0px 0px 0px 6px, #e62a6d 0px 0px 0px 12px, rgb(17, 7, 50) 0px 0px 0px 18px;
+    border-radius: 210px;
+    transition: transform 400ms ease;
+}
+.mainPicture.expanded{
+    width: 32dvw;
+    height: calc(100dvh - 80px);
+    border-radius: 0;
+    box-shadow: none;
+    pointer-events: none;
+    order: 1;
+}
+.fade-in-out {
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+  }
+.firstElement{
+    order: 0;
+}
+.infoProject{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+    transition: opacity 400ms ease;
+}
+.infoProject.expanded{
+    padding-right: 5dvw;
+    opacity: 1;
+}
+.titleCarousel{
+    padding-top: 30px;
+    font-weight: 500;
+    // font-style: italic;
+    color: rgb(17, 7, 50);
+    text-align: center;
+    font-size: clamp(20px, 2dvw, 54px);
+}
+.titleCarousel.expanded{
+    font-size: clamp(26px, 6.1dvw, 130px);
+    text-align: left;
+    padding: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 8.5dvw;
+    font-style: normal;
+    text-wrap: balance;
+}
+.descCarousel{
+    font-size: clamp(18px, 1.8dvw, 48px);
+    text-align: justify;
+    padding-bottom: 8px;
+    box-sizing: border-box; 
+}
+
+.downBotton{
+    position: absolute;
+    border: 0;
+    background-color: transparent;
+    bottom: 2.4dvw;
+    left: 4.5dvw;
+    color: rgba(17, 7, 50, 1.0);
+    cursor: pointer;
+    transition: all 240ms ease-out;
+}
+.downBotton:hover{
+    scale: 1.3;
+}
+@keyframes moveImage{
+    0%{
+        transform: translateX(-70%);
+    }
+    100%{
+        transform: translateX(70%);
+    }
+}
+
+@media (width >= 1600px){
+    .buttonDown{
+        transform: scale(1.2);
+    }
+    .buttonDown:hover{
+        background-color: #e62a6d;
+        transform: scale(1.6);
+    }
+}

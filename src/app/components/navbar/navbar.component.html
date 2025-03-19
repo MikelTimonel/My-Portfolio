@@ -1,0 +1,13 @@
+<div class="card">
+    <div class="icon_Name">
+        <img id="logoPage" src="LogoMT.svg" alt="Logo">
+        <p class="myName">Miguel Timote</p>
+    </div>
+    <mat-icon style="font-size: 30px; height: auto; width: auto;" *ngIf="screenWidth <= 746">menu</mat-icon>
+    <div *ngIf="screenWidth > 746" class="options">
+        <button class="optionNavbar" (click)="scrollToSection('home')" [ngClass]="{'activeSection' : activeSection == 'home'}">Home</button>
+        <button class="optionNavbar" (click)="scrollToSection('aboutme')" [ngClass]="{'activeSection' : activeSection == 'aboutme'}">Sobre mí</button>
+        <button class="optionNavbar" (click)="scrollToSection('projects')" [ngClass]="{'activeSection' : activeSection == 'projects'}">Trabajos</button>
+        <button class="contactmeButton" (click)="scrollToSection('contactme')">Contáctame</button>
+    </div>
+</div>

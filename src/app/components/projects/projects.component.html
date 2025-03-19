@@ -1,0 +1,103 @@
+<div class="content">
+    <div class="banners">
+        <img class="bannerImgT" src="BannerProjects.svg" alt="" />
+        <img class="bannerImgB" src="BannerProjectsBottom.svg" alt="" />
+    </div>
+    <p *ngIf="screenWidth >= 1760" class="textToContinue">
+        Sigue bajando y descubre mis creaciones.
+    </p>
+    <div class="buttonDiv">
+        <button class="buttonDown"><img src="arrow-down.svg" alt="" /></button>
+        <div style="order: 0" class="lineDecoration"></div>
+        <div style="order: 2" class="lineDecoration"></div>
+    </div>
+</div>
+<div class="containerForProjects">
+    <div [@zoomInOnEnter] [@slideOutDownOnLeave] *ngIf="sectionToShow !== ''" id="containerCarousel">
+        <button *ngIf="currentScroll !== 0 && statePanel !== 'expanded' " class="leftScrollButton"
+            (click)="scrollProjects(false)"></button>
+        <div id="projectsList"
+            [ngClass]="{ 'fewerProjects': projectList.length < 4, 'expanded' : statePanel === 'expanded'}">
+            <div *ngFor="let project of currentProject.length === 0 ? projectList : currentProject"
+                class="projectInCarousel" [ngClass]="{'expanded' : statePanel === 'expanded'}">
+                <div [ngClass]="{'expandedBanner' : statePanel === 'expanded'}">
+                    <button *ngIf="statePanel === 'expanded'" (click)="backToProjects(project)" class="backToProjects">
+                        <mat-icon style="font-size: 2dvw; width: 2dvw; height: 2dvw;">keyboard_arrow_left</mat-icon>
+                        <span>Volver</span>
+                    </button>
+                    <img [ngClass]="{'expanded' : statePanel === 'expanded'}" (click)="selectProject(project)"
+                        src="{{ project.currentPicture }}" alt="" class="mainPicture" [class.fade-in-out]="fading" />
+                    <div class="infoProject" [ngClass]="{'expanded' : statePanel === 'expanded'}">
+                        <p class="titleCarousel" [ngClass]="{ 'expanded': statePanel == 'expanded' }">
+                            {{ project.title }}
+                        </p>
+                        <p class="descCarousel" *ngIf="statePanel == 'expanded'">
+                            {{ project.description }}
+                        </p>
+                    </div>
+                    <button *ngIf="statePanel === 'expanded'" class="downBotton"><mat-icon style="font-size: 3.5dvw; width: 3.5dvw; height: 3.5dvw;">arrow_downward</mat-icon></button>
+                </div>
+                <div>
+                    <img [src]="project.pictures[1]" alt="">
+                </div>
+            </div>
+        </div>
+        <button *ngIf="currentScroll !== maxScroll && statePanel !== 'expanded'" class="rightScrollButton"
+            (click)="scrollProjects(true)"></button>
+    </div>
+    <!-- <div [@zoomInOnEnter] [@bounceOutDownOnLeave] *ngIf="sectionToShow !== ''" class="projects">
+        <div class="infoProject">
+            <h4>Lorem ipsum dolor, sit amet consectetur adipisicing.</h4>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat illo perspiciatis vel magni modi
+                consequuntur dolorem iusto necessitatibus nesciunt quibusdam ullam eius, esse expedita ad deserunt
+                reiciendis, hic ut? Magnam cumque mollitia quibusdam reprehenderit, earum accusantium a id! Consequatur
+                eum eaque nemo rem, similique quos. Inventore expedita, placeat nobis dolorem accusamus commodi a
+                quisquam sit assumenda temporibus earum natus quis beatae reprehenderit ab rerum exercitationem ea,
+                eligendi vitae doloribus provident.</p>
+        </div>
+        <div class="imgProject" style="background-image: url({{imageToShow}});" [class.fade-in-out]="fadeOut">
+        </div>
+    </div> -->
+    <div [@slideInDownOnEnter] [@zoomOutOnLeave] *ngIf="sectionToShow === ''" class="rolesSection">
+        <div class="topRoles">
+            <div (click)="showSection('designer')" class="role designer">
+                <h5 class="roleTitle">DISEÑADOR CREATIVO</h5>
+                <p class="desc">Diseño centrado en el usuario y su experiencia.</p>
+                <p class="skills">
+                    Habilidades: Investigación de usuarios, Diseño responsivo, Trabajo en
+                    equipo, Wireframes, Teoría del color, Diseño UI/UX
+                </p>
+            </div>
+            <div (click)="showSection('developer')" class="role frontDev">
+                <h5 class="roleTitle">DESARROLLADOR FRONTEND</h5>
+                <p class="desc">
+                    Construcción de interfaces intuitivas con las mejores prácticas de
+                    desarrollo.
+                </p>
+                <p class="skills">
+                    Habilidades: SASS/SCSS, HTML, CSS, JavaScript, Angular, Diseño
+                    Responsive, Git y control de versiones, Compatibilidad entre
+                    navegadores
+                </p>
+            </div>
+        </div>
+        <div (click)="showSection('videogames')" class="role videogamesDev">
+            <div style="color: transparent; height: 16px"></div>
+            <div class="gamesContent">
+                <h5 class="roleTitle">DESARROLLADOR DE VIDEOJUEGOS</h5>
+                <p class="desc">
+                    Cada pixel y línea de código le dan vida a las aventuras más
+                    inolvidables.
+                </p>
+                <p class="skills">
+                    Habilidades: Unity, Level design, Diseño de interfaces (HUD),
+                    Programación orientada a objetos, Eventos dinámicos, Pruebas y
+                    Depuración
+                </p>
+            </div>
+            <div style="height: 38px; width: 100%; margin-bottom: 6px">
+                <img class="imgRole" src="Pacman.svg" alt="" />
+            </div>
+        </div>
+    </div>
+</div>

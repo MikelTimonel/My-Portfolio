@@ -1,0 +1,68 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 80px;
+}
+
+app-navbar {
+    flex-shrink: 0;
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+}
+.languages{
+    position: fixed;
+    right: 22px;
+    top: 90px;
+    width: fit-content;
+}
+.languagesList {
+    list-style-type: none;
+    margin: 0;
+    padding: 12px 10px;
+    background-color: white;
+    opacity: 0;
+    transform: translatey(-24px);
+    z-index: -1;
+    position: relative;
+    transition: opacity 0.2s ease-in, transform 0.2s ease-out;
+}
+
+.languagesList.show {
+    opacity: 1;
+    transform: translatey(0);
+}
+
+
+.languages-overlay {
+    position: fixed;
+    top: 94px;
+    right: 2.1dvw;
+    z-index: 10000;
+}
+
+#languageButton {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.99);
+    padding: 6px 8px 6px 16px;
+    border: 0;
+    font-weight: 500;
+    z-index: 10001;
+    transition: 0.1s ease-in;
+    box-shadow: 0px 0px 8px rgba(12, 12, 12, 0.61);
+}
+
+#languageButton:hover{
+    background-color: #dadada;
+}
+.flag {
+    margin-right: 7px;
+}
+app-banner, app-about-me {
+    height: calc(100dvh - 80px);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}

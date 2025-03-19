@@ -1,0 +1,105 @@
+
+.content {
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px 20px; 
+    box-sizing: border-box; 
+    max-width: 100%;
+}
+
+.coverPage {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin: 0; /* Ajustar márgenes para respetar el padding */
+    padding: 0; /* Evitar conflictos con el padding del padre */
+}
+
+.coverDescription{
+    font-size: clamp(16px, 1.7dvw, 36px);
+    display: block;
+    width: 68dvw;
+    padding-top: 8px;
+    margin: 8px 0;
+}
+.heyText{
+    font-size: clamp(20px, 2dvw, 40px);
+    margin-bottom: 14px !important;
+    margin-top: 0 !important;
+}
+.myName{
+    font-size: clamp(28px, 6.2dvw, 1600px);
+    text-shadow: 0px 7px 5px rgb(12, 12, 12);
+    z-index: -1;
+}
+.rotating-text {
+    display: inline-block;
+    animation: rotateFront 5s infinite linear;
+    transform-origin: center;
+}
+.findOutButton{
+    margin-top: min(56px, 2.6dvw);
+    border-radius: 20px;
+    font-size: clamp(18px, 1.4dvw, 60px);
+    padding: 8px 18px;
+    background: radial-gradient(ellipse 58% 81% at center, rgba(24,12,64,1) 64%, rgba(17,7,50,1) 100%);
+    color: white;
+    border: 0;
+    position: relative;
+}
+.findOutButton::after, .findOutButton::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), #dcc5e2, #b699c2, #4f296e, #7d3f83, #5e458d);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -2;
+    padding: 3px;
+    border-radius: 20px;
+    animation: 3s spin cubic-bezier(.27,.65,.61,.63) infinite;
+}
+.highlightedtext{
+    font-weight: 500;
+    color: #00C2EC;
+}
+.findOutButton::before{
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+@keyframes rotateFront {
+    0%{
+        transform: rotateX(0deg);
+    }
+    80% {
+        transform: rotateX(0deg);
+    }
+    100% {
+        transform: rotateX(360deg);
+    }
+}
+@keyframes spin{
+    from{
+        --angle:0deg;
+    }
+    to {
+        --angle:360deg;
+    }
+}
+@media (width <= 746px) {
+    .coverDescription{
+        width: 100%;
+    }
+}
